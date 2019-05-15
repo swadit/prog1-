@@ -1,0 +1,97 @@
+Write a program that automatically converts English text to Morse code
+and vice versa.
+
+def encrypt(message):
+    cipher = ''
+    for letter in message:
+        if letter != ' ':
+
+
+            cipher += MORSE_CODE_DICT[letter] + ' '
+        else:
+
+            cipher += ' '
+
+    return cipher
+
+
+# Function to decrypt the string
+# from morse to english
+def decrypt(message):
+    # extra space added at the end to access the
+    # last morse code
+    message += ' '
+
+    decipher = ''
+    citext = ''
+    for letter in message:
+
+        # checks for space
+        if (letter != ' '):
+
+            # counter to keep track of space
+            i = 0
+
+            # storing morse code of a single character
+            citext += letter
+
+            # in case of space
+        else:
+            # if i = 1 that indicates a new character
+            i += 1
+
+            # if i = 2 that indicates a new word
+            if i == 2:
+
+                
+                decipher += ' '
+            else:
+
+                # accessing the keys using their values (reverse of encryption)
+                decipher += list(MORSE_CODE_DICT.keys())[list(MORSE_CODE_DICT
+                                                              .values()).index(citext)]
+                citext = ''
+
+    return decipher
+    
+    
+    
+    
+ The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime
+factor of the number 600851475143
+
+
+import math
+for i in range(int(math.sqrt(600851475143)),1,-1):
+    if 600851475143 % i ==0:
+        flag = False
+        for y in range(int(math.sqrt(i)),1,-1):
+            if(i % y ==0):
+               flag = True
+        if(flag!=True):
+            print(i)
+            break
+            
+  By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
+that the 6th prime is 13.
+What is the 10 001st prime number?
+
+
+
+def isPrime(n):
+    if n < 2: return "Neither prime, nor composite"
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# returns the nth prime number
+def nthPrime(n):
+    numberOfPrimes = 0
+    prime = 1
+
+    while numberOfPrimes < n:
+        prime += 1
+        if isPrime(prime):
+            numberOfPrimes += 1
+    return prime
